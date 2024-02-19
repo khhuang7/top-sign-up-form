@@ -34,19 +34,21 @@
         <div class="form-item">
           <label for="first-name">First name</label>
           <input id="first-name" name="first_name" type="text" required
-            placeholder="" value="Testing">
+            autocomplete="given-name"
+            placeholder="">
         </div>
 
         <div class="form-item">
           <label for="last-name">Last name</label>
           <input id="last-name" name="last_name" type="text" required
+            autocomplete="family-name"
             placeholder="">
         </div>
 
         <div class="form-item">
           <label for="email">Email</label>
           <input id="email" name="email" type="email" required
-            value="testing"
+            autocomplete="email"
             placeholder="">
         </div>
 
@@ -55,7 +57,7 @@
           <input
             id="phone" name="phone" type="tel" required
             pattern="^([+]?[\s0-9]+)?(\d{3}|[\(]?[0-9]+[\)])?([\-]?[\s]?[0-9])+$"
-            value="testing"
+            autocomplete="tel"
             placeholder="">
         </div>
 
@@ -63,6 +65,7 @@
           <label for="password">Password</label>
           <input id="password" name="password" type="password" required
             placeholder="">
+          <span id="password-error"></span>
         </div>
 
         <div class="form-item">
@@ -79,5 +82,53 @@
       <p>Already have an account? <a href="">Log in</a></p>
     </div>
   </div>
+
+  <script>
+    const pwd1 = document.querySelector("#password");
+    const pwd2 = document.querySelector("#password-confirm");
+    const pwdErrorMsg = document.querySelector("#password-error");
+
+    function matchPassword() {
+      let pwd1Text = pwd1.value;
+      let pwd2Text = pwd2.value;
+
+      if (pwd1Text.length === 0 || pwd2Text.length === 0) {
+        hidePwdError();
+        return;
+      }
+      if (pwd1Text.length != pwd2Text.length) {
+        showPwdError();
+        return;
+      }
+
+      for (let i = 0; i < Math.min(pwd1Text.length, pwd2Text.length); i++) {
+        if (pwd1Text[i] != pwd2Text[i]) {
+          showPwdError();
+          return;
+        }
+      }
+
+      hidePwdError();
+
+    }
+
+    function showPwdError() {
+      pwdErrorMsg.textContent = "* Passwords do not match";
+      pwd1.setCustomValidity("Passwords do not match");
+      pwd2.setCustomValidity("Passwords do not match");
+      return;
+    }
+
+    function hidePwdError() {
+      pwd1.setCustomValidity("");
+      pwd2.setCustomValidity("");
+      pwdErrorMsg.textContent = "";
+      return;
+    }
+
+    pwd1.addEventListener('keyup', matchPassword);
+    pwd2.addEventListener('keyup', matchPassword);
+  </script>
+
 </body>
 </html>

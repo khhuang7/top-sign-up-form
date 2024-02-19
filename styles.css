@@ -121,6 +121,11 @@ input[type="tel"]:focus {
   box-shadow: 2px 2px 5px #ccc; 
 }
 
+#password-error {
+  color: #b92326;
+  font-size: 90%;
+}
+
 button {
   appearance: none;
   padding: 15px 40px;
