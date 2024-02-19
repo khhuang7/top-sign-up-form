@@ -121,6 +121,25 @@ input[type="tel"]:focus {
   box-shadow: 2px 2px 5px #ccc; 
 }
 
+button {
+  appearance: none;
+  padding: 15px 40px;
+
+  border: none;
+  border-radius: 15px;
+  background-color: rgb(120, 3, 226);
+  color: white;
+
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+a {
+  color: rgb(120, 3, 226);
+  font-weight: bold;
+  text-decoration: none;
+}
+
 /* Responsive design */
 
 @media (min-width: 900px) {
