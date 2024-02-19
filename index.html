@@ -96,16 +96,9 @@
         hidePwdError();
         return;
       }
-      if (pwd1Text.length != pwd2Text.length) {
+      if (pwd1Text != pwd2Text) {
         showPwdError();
         return;
-      }
-
-      for (let i = 0; i < Math.min(pwd1Text.length, pwd2Text.length); i++) {
-        if (pwd1Text[i] != pwd2Text[i]) {
-          showPwdError();
-          return;
-        }
       }
 
       hidePwdError();
