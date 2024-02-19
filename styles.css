@@ -1,0 +1,55 @@
+#hero,
+.main,
+img {
+  width: 100%;
+}
+
+#hero {
+  position: relative;
+}
+
+.logo {
+  position: absolute;  
+  top: 3%; 
+  width: 100%;
+  
+  background-color: #ffffff85;
+  padding: 20px 0px 15px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-img {
+  min-width: 0;
+  flex: 0 1 175px;
+}
+
+.logo > p {
+  margin: 0;
+  font-size: 2rem;
+  font-family: "Bad Script";
+  font-weight: 1000;
+  line-height: 1.5;
+}
+
+.main {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 30px;
+}
+
+@media (min-width: 900px) {
+  body {
+    display: flex;
+  }
+
+  #hero {
+    max-width: 500px;
+  }
+
+  #hero-img {
+    content: url("./aerialist-pro-purple-silks-narrow.jpg")
+  }
+}
